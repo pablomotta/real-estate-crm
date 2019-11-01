@@ -37,7 +37,7 @@ img {
 
 /* Global Styles */
 :root {
-    --primary-color: #003699;
+    --primary-color: #0a192f;
     --dark-color: #333333;
     --light-color: #f4f4f4;
     --danger-color: #dc3545;
@@ -51,7 +51,7 @@ img {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     background-color: #fff;
@@ -364,10 +364,10 @@ input {
     color: #888;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='date'],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
 select,
 textarea {
     display: block;
@@ -377,7 +377,7 @@ textarea {
     border: 1px solid #ccc;
 }
 
-input[type='submit'],
+input[type="submit"],
 button {
     font: inherit;
 }
@@ -431,7 +431,7 @@ table th {
 }
 
 .navbar a {
-    color: #fff;
+    color: #64ffda;
     padding: 0.45rem;
     margin: 0 0.25rem;
 }
@@ -499,4 +499,23 @@ table th {
         text-align: center;
         justify-content: center;
     }
+}
+
+.form-elegant .font-small {
+    font-size: 0.8rem;
+}
+
+.form-elegant .z-depth-1a {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26),
+        0 4px 12px 0 rgba(121, 155, 254, 0.25);
+    box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26),
+        0 4px 12px 0 rgba(121, 155, 254, 0.25);
+}
+
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28),
+        0 4px 15px 0 rgba(36, 133, 255, 0.15);
+    box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28),
+        0 4px 15px 0 rgba(36, 133, 255, 0.15);
 }
