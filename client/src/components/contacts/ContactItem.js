@@ -73,13 +73,13 @@ const ContactItem = ({ contact }) => {
                 )}
                 {purchaseZipCode && (
                     <li>
-                        <i class='fas fa-home'></i> - <b> Target Zip Code</b>{' '}
+                        <i class='fas fa-home'></i> - <b> Target Zip Code:</b>{' '}
                         {purchaseZipCode}
                     </li>
                 )}
                 {notes && (
                     <li>
-                        <i class='fas fa-sticky-note'></i> - <b>Notes</b>{' '}
+                        <i class='fas fa-sticky-note'></i> - <b>Notes:</b>{' '}
                         {notes}
                     </li>
                 )}
