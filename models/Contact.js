@@ -16,9 +16,21 @@ const ContactSchema = mongoose.Schema({
     phone: {
         type: String
     },
-    type: {
+    purchaseZipCode: {
+        type: String
+    },
+    notes: {
+        type: String
+    },
+    lastContacted: {
+        type: String
+    },
+    birthday: {
+        type: String
+    },
+    status: {
         type: String,
-        default: 'personal'
+        default: 'Interested' //Interested - Ready - On Hold
     },
     date: {
         type: Date,
