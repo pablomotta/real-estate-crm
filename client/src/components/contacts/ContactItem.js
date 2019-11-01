@@ -6,12 +6,25 @@ const ContactItem = ({ contact }) => {
     const contactContext = useContext(ContactContext);
     const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-    const { _id, name, email, phone, type } = contact;
+    const { _id, name, email, phone, status } = contact;
 
     const onDelete = () => {
         deleteContact(_id);
         clearCurrent();
     };
+
+    function customerStatus(input) {
+        switch (input) {
+            case 'Interested':
+                return ' badge badge-primary';
+            case 'Ready To Buy':
+                return ' badge badge-success';
+            case 'On Hold':
+                return 'badge badge-danger';
+            default:
+                return 'badge badge-primary';
+        }
+    }
 
     return (
         <div className='card bg-light'>
@@ -19,14 +32,9 @@ const ContactItem = ({ contact }) => {
                 {name}{' '}
                 <span
                     style={{ float: 'right' }}
-                    className={
-                        'badge ' +
-                        (type === 'professional'
-                            ? 'badge-success'
-                            : 'badge-primary')
-                    }
+                    className={customerStatus(status)}
                 >
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                    {status.charAt(0).toUpperCase() + status.slice(1)}
                 </span>
             </h3>
             <ul className='list'>
