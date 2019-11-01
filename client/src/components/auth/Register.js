@@ -35,24 +35,26 @@ const Register = props => {
 
     const [user, setUser] = useState({
         name: "",
+        name2: "",
         email: "",
-        password: "",
-        password2: ""
+        password: ""
     });
 
-    const { name, name2, email, password, password2 } = user;
+    const { name, name2, email, password } = user;
+
 
     const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
-        if (name === "" || email === "" || password === "") {
+        if (user.name === "" || user.name2 === "" || user.email === "" || user.password === "") {
             setAlert("Please enter all fields", "danger");
-        } else if (password !== password2) {
+        } else if (user.password !== user.password2) {
             setAlert("Passwords do no match", "danger");
         } else {
-            register({
+            register ({
                 name,
+                name2,
                 email,
                 password
             });
@@ -60,13 +62,11 @@ const Register = props => {
     };
 
     return (
-        <div onSubmit={onSubmit}>
             <MDBContainer>
                 <MDBRow>
                     <MDBCol md="6">
                         <MDBCard>
                             <MDBCardBody className="mx-4">
-                                <form onSubmit={onSubmit}>
                                     <div className="text-center">
                                         <h3 className="dark-grey-text mb-5 mt-4 font-weight-bold">
                                             <strong>SIGN</strong>
@@ -78,45 +78,41 @@ const Register = props => {
                                             </a>
                                         </h3>
                                     </div>
+                                <form onSubmit={onSubmit}>
                                     <MDBInput
                                         label="First Name"
                                         type="text"
-                                        value={name}
+                                        value={user.name}
                                         onChange={onChange}
-                                        required
                                         containerClass="mb-0"
                                     />
                                     <MDBInput
                                         label="Last Name"
                                         type="text"
-                                        value={name2}
+                                        value={user.name2}
                                         onChange={onChange}
-                                        required
                                         containerClass="mb-0"
                                     />
                                     <MDBInput
                                         label="Your email"
                                         type="text"
-                                        value={email}
+                                        value={user.email}
                                         onChange={onChange}
-                                        required
                                     />
                                     <MDBInput
                                         label="Password"
                                         type="password"
-                                        value={password}
+                                        value={user.password}
                                         onChange={onChange}
                                         containerClass="mb-0"
-                                        required
                                         minLength="6"
                                     />
                                     <MDBInput
                                         label="Confirm Your Password"
                                         type="password"
-                                        value={password2}
+                                        value={user.password2}
                                         onChange={onChange}
                                         containerClass="mb-0"
-                                        required
                                         minLength="6"
                                     />
                                     <div className="text-center mb-3">
@@ -187,7 +183,6 @@ const Register = props => {
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
-        </div>
     );
 };
 

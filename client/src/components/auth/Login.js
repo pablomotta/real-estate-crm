@@ -44,7 +44,7 @@ const Login = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-        if ((email === "") | (password === "")) {
+        if ((user.email === "") | (user.password === "")) {
             setAlert("Please fill in all fields", "danger");
         } else {
             login({
@@ -60,7 +60,7 @@ const Login = props => {
                 <MDBCol md="6">
                     <MDBCard>
                         <MDBCardBody className="mx-4">
-                            <div className="text-center" onSubmit={onSubmit}>
+                            <div className="text-center">
                                 <h3 className="dark-grey-text mb-5 mt-4 font-weight-bold">
                                     <strong>SIGN</strong>
                                     <a
@@ -75,14 +75,14 @@ const Login = props => {
                                 <MDBInput
                                     label="Your email"
                                     type="email"
-                                    value={email}
+                                    value={user.email}
                                     onChange={onChange}
                                     required
                                 />
                                 <MDBInput
                                     label="Your password"
                                     type="password"
-                                    value={password}
+                                    value={user.password}
                                     onChange={onChange}
                                     containerClass="mb-0"
                                     required
