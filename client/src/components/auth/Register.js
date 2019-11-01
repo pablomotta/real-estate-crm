@@ -18,8 +18,10 @@ const Register = props => {
     const alertContext = useContext(AlertContext);
     const authContext = useContext(AuthContext);
 
+
     const { setAlert } = alertContext;
     const { register, error, clearErrors, isAuthenticated } = authContext;
+
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -82,27 +84,27 @@ const Register = props => {
                                     <MDBInput
                                         label="First Name"
                                         type="text"
-                                        value={user.name}
+                                        value={user.name.value}
                                         onChange={onChange}
                                         containerClass="mb-0"
                                     />
                                     <MDBInput
                                         label="Last Name"
                                         type="text"
-                                        value={user.name2}
+                                        value={user.name2.value}
                                         onChange={onChange}
                                         containerClass="mb-0"
                                     />
                                     <MDBInput
                                         label="Your email"
                                         type="text"
-                                        value={user.email}
+                                        value={user.email.value}
                                         onChange={onChange}
                                     />
                                     <MDBInput
                                         label="Password"
                                         type="password"
-                                        value={user.password}
+                                        value={user.password.value}
                                         onChange={onChange}
                                         containerClass="mb-0"
                                         minLength="6"

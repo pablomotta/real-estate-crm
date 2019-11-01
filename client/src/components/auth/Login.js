@@ -44,7 +44,7 @@ const Login = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-        if ((user.email === "") | (user.password === "")) {
+        if ((user.email.value === "") | (user.password.value === "")) {
             setAlert("Please fill in all fields", "danger");
         } else {
             login({
@@ -75,17 +75,15 @@ const Login = props => {
                                 <MDBInput
                                     label="Your email"
                                     type="email"
-                                    value={user.email}
+                                    value={user.email.value}
                                     onChange={onChange}
-                                    required
                                 />
                                 <MDBInput
                                     label="Your password"
                                     type="password"
-                                    value={user.password}
+                                    value={user.password.value}
                                     onChange={onChange}
                                     containerClass="mb-0"
-                                    required
                                     minLength="6"
                                 />
                                 <div className="text-center mb-3">
@@ -93,10 +91,9 @@ const Login = props => {
                                         type="submit"
                                         gradient="blue"
                                         value="Login"
-                                        rounded
                                         className="btn-block z-depth-1a"
                                     >
-                                        Create Account
+                                        LOGIN
                                     </MDBBtn>
                                 </div>
                                 <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
