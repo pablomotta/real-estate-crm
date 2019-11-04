@@ -26,7 +26,7 @@ const ContactState = props => {
     const [state, dispatch] = useReducer(contactReducer, initialState);
 
     // Get Contacts
-    const getContacts = async contact => {
+    const getContacts = async () => {
         try {
             const res = await axios.get('/api/contacts');
 
@@ -44,14 +44,17 @@ const ContactState = props => {
 
     // Add Contact
     const addContact = async contact => {
+        const token = localStorage.getItem('token');
         const config = {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-auth-token': token
             }
         };
 
         try {
             const res = await axios.post('/api/contacts', contact, config);
+            console.log(res);
 
             dispatch({
                 type: ADD_CONTACT,
@@ -92,15 +95,16 @@ const ContactState = props => {
 
         try {
             const res = await axios.put(
-                `/api/contacts/${contact._id}`,
+                `/api/contacts/${contact.id}`,
                 contact,
                 config
             );
-
+            console.log(res.data);
             dispatch({
                 type: UPDATE_CONTACT,
                 payload: res.data
             });
+            clearCurrent();
         } catch (err) {
             dispatch({
                 type: CONTACT_ERROR,

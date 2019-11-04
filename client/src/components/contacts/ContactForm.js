@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
-import ContactContext from '../../context/contact/contactContext';
-
+import React, { useState, useContext, useEffect } from "react";
+import ContactContext from "../../context/contact/contactContext";
+import { MDBInput, MDBBtn, MDBFormInline } from "mdbreact";
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
 
@@ -11,22 +11,39 @@ const ContactForm = () => {
             setContact(current);
         } else {
             setContact({
-                name: '',
-                email: '',
-                phone: '',
-                type: 'personal'
+                name: "",
+                email: "",
+                phone: "",
+                purchaseZipCode: "",
+                notes: "",
+                lastContacted: "",
+                birthday: "",
+                status: "Interested"
             });
         }
     }, [contactContext, current]);
 
     const [contact, setContact] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        type: 'personal'
+        name: "",
+        email: "",
+        phone: "",
+        purchaseZipCode: "",
+        notes: "",
+        lastContacted: "",
+        birthday: "",
+        status: "Interested"
     });
 
-    const { name, email, phone, type } = contact;
+    const {
+        name,
+        email,
+        phone,
+        purchaseZipCode,
+        notes,
+        lastContacted,
+        birthday,
+        status
+    } = contact;
 
     const onChange = e =>
         setContact({ ...contact, [e.target.name]: e.target.value });
@@ -39,10 +56,14 @@ const ContactForm = () => {
             updateContact(contact);
         }
         setContact({
-            name: '',
-            email: '',
-            phone: '',
-            type: 'personal'
+            name: "",
+            email: "",
+            phone: "",
+            purchaseZipCode: "",
+            notes: "",
+            lastContacted: "",
+            birthday: "",
+            status: "Interested"
         });
     };
 
@@ -51,62 +72,104 @@ const ContactForm = () => {
     };
     return (
         <form onSubmit={onSubmit}>
-            <h2 className='text-primary'>
-                {current ? 'Edit Contact' : 'Add Contact'}
+            <h2 className="text-primary">
+                {current ? "Edit Contact" : "Add Contact"}
             </h2>
-            <input
-                type='text'
-                placeholder='Name'
-                name='name'
+            <MDBInput
+                type="text"
+                label="Name"
+                name="name"
                 value={name}
                 onChange={onChange}
             />
-            <input
-                type='email'
-                placeholder='Email'
-                name='email'
+            <MDBInput
+                type="email"
+                label="Email"
+                name="email"
                 value={email}
                 onChange={onChange}
             />
-            <input
-                type='text'
-                placeholder='Phone'
-                name='phone'
+            <MDBInput
+                type="text"
+                label="Phone"
+                name="phone"
                 value={phone}
                 onChange={onChange}
             />
-            <h5>Contact Type</h5>
-            <input
-                type='radio'
-                name='type'
-                value='personal'
-                checked={type === 'personal'}
+            <MDBInput //zip code
+                type="text"
+                label="Purchase Zip Code"
+                name="purchaseZipCode"
+                value={purchaseZipCode}
                 onChange={onChange}
-            />{' '}
-            Personal{' '}
-            <input
-                type='radio'
-                name='type'
-                value='professional'
-                checked={type === 'professional'}
+            />
+            <MDBInput
+                type="text"
+                label="Briefing Notes"
+                name="notes"
+                value={notes}
                 onChange={onChange}
-            />{' '}
-            Professional{' '}
+            />
+            <MDBInput
+                type="text"
+                label="Meeting Time"
+                name="lastContacted"
+                value={lastContacted}
+                onChange={onChange}
+            />
+            <MDBInput
+                type="text"
+                label="Meeting Location"
+                name="birthday"
+                value={birthday}
+                onChange={onChange}
+            />
+            <h3>Status</h3>
+            <MDBFormInline>
+                <MDBInput
+                    type="radio"
+                    name="status"
+                    value="Interested"
+                    checked={status === "Interested"}
+                    onChange={onChange}
+                />{" "}
+                Interested{" "}
+                <MDBInput
+                    type="radio"
+                    name="status"
+                    value="Ready To Buy"
+                    checked={status === "Ready To Buy"}
+                    onChange={onChange}
+                />{" "}
+                Ready To Buy{" "}
+                <MDBInput
+                    type="radio"
+                    name="status"
+                    value="On Hold"
+                    checked={status === "On Hold"}
+                    onChange={onChange}
+                />{" "}
+                On Hold{" "}
+            </MDBFormInline>
             <div>
-                <input
-                    type='submit'
-                    value={current ? 'Update Contact' : 'Add Contact'}
-                    className='btn btn-primary btn-block'
-                />
+                <MDBInput
+                    type="submit"
+                    gradient="blue"
+                    value={current ? "Update Contact" : "Add Contact"}
+                    className="btn btn-primary btn-block"
+                >
+                    {" "}
+                </MDBInput>
             </div>
             {current && (
                 <div>
-                    <button
-                        className='btn btn-light btn-block'
+                    <MDBBtn
+                        color="red"
+                        className="btn btn-danger btn-block"
                         onClick={clearAll}
                     >
                         Clear
-                    </button>
+                    </MDBBtn>
                 </div>
             )}
         </form>
