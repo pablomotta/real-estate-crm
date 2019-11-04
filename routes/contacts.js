@@ -128,13 +128,13 @@ router.put('/:id', auth, async (req, res) => {
         contact = await db.Contacts.update(contactFields, {
             where: {
                 id: req.params.id
-            }
+            },
+            plain: true
         });
-        // contact = await Contact.findByIdAndUpdate(
-        //     req.params.id,
-        //     { $set: contactFields },
-        //     { new: true }
-        // );
+        contact = await db.Contacts.findOne({
+            where: { id: req.params.id },
+            include: [db.User]
+        });
 
         res.json(contact);
     } catch (err) {

@@ -104,6 +104,7 @@ const ContactState = props => {
                 type: UPDATE_CONTACT,
                 payload: res.data
             });
+            clearCurrent();
         } catch (err) {
             dispatch({
                 type: CONTACT_ERROR,
