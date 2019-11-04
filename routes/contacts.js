@@ -66,7 +66,7 @@ router.post(
                 notes,
                 lastContacted,
                 birthday,
-                UserId
+                UserId: req.user.id
             };
 
             const contact = await db.Contacts.create(newContact);
