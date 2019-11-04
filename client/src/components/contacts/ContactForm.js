@@ -152,16 +152,19 @@ const ContactForm = () => {
                 On Hold{" "}
             </MDBFormInline>
             <div>
-                <MDBInput
+                <MDBBtn
                     type="submit"
+                    gradient="blue"
                     value={current ? "Update Contact" : "Add Contact"}
                     className="btn btn-primary btn-block"
-                />
+                >
+                    Add Contact{" "}
+                </MDBBtn>
             </div>
             {current && (
                 <div>
                     <MDBBtn
-                        gradient="blue"
+                        color="red"
                         className="btn btn-light btn-block"
                         onClick={clearAll}
                     >
