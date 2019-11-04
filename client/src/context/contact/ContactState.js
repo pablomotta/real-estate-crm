@@ -95,11 +95,11 @@ const ContactState = props => {
 
         try {
             const res = await axios.put(
-                `/api/contacts/${contact._id}`,
+                `/api/contacts/${contact.id}`,
                 contact,
                 config
             );
-
+            console.log(res.data);
             dispatch({
                 type: UPDATE_CONTACT,
                 payload: res.data
