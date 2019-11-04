@@ -165,7 +165,7 @@ const ContactForm = () => {
                 <div>
                     <MDBBtn
                         color="red"
-                        className="btn btn-light btn-block"
+                        className="btn btn-danger btn-block"
                         onClick={clearAll}
                     >
                         Clear
