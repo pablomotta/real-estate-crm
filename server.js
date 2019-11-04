@@ -1,11 +1,12 @@
 const express = require('express');
-const connectDB = require('./config/db');
+// const connectDB = require('./config/db');
 const path = require('path');
+var db = require('./models');
 
 const app = express();
 
 // Connect Database
-connectDB();
+// connectDB();
 
 //Init Middleware
 app.use(express.json({ extended: false }));
@@ -27,4 +28,6 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+db.sequelize.sync().then(function() {
+    app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+});

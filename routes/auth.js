@@ -6,14 +6,17 @@ const config = require('config');
 const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
-const User = require('../models/User');
+const db = require('../models');
 
 // @route   GET api/auth
 // @desc    Get logged in user
 // @access  Private
 router.get('/', auth, async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await db.User.findOne({
+            where: email,
+            include: [db.Contacts]
+        });
         res.json(user);
     } catch (err) {
         console.error(err.message);
@@ -39,7 +42,11 @@ router.post(
         const { email, password } = req.body;
 
         try {
-            let user = await User.findOne({ email });
+            let user = await db.User.findOne({
+                where: {
+                    email
+                }
+            });
 
             if (!user) {
                 return res.status(400).json({ msg: 'Invalid Credentials' });
