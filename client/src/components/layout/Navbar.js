@@ -1,8 +1,8 @@
-import React, { Fragment, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import AuthContext from '../../context/auth/authContext';
-import ContactContext from '../../context/contact/contactContext';
+import React, { Fragment, useContext } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import AuthContext from "../../context/auth/authContext";
+import ContactContext from "../../context/contact/contactContext";
 
 const Navbar = ({ title, icon }) => {
     const authContext = useContext(AuthContext);
@@ -18,19 +18,19 @@ const Navbar = ({ title, icon }) => {
 
     const authLinks = (
         <Fragment>
-            <li className='ml-1'>
-                <Link to='/'>Home</Link>
+            <li className="ml-1">
+                <Link to="/">Home</Link>
             </li>
-            <li className='ml-1'>
-                <Link to='/about'>About</Link>
+            <li className="ml-1">
+                <Link to="/about">About</Link>
             </li>
-            <li li className='ml-1'>
+            <li li className="ml-1">
                 Hello, {user && user.name}!
             </li>
-            <li className='ml-1'>
-                <a onClick={onLogout} href='#1'>
-                    <i className='fas fa-sign-out-alt '></i>
-                    <span className='hide-sm'>Logout</span>
+            <li className="ml-1">
+                <a onClick={onLogout} href="#1">
+                    <i className="fas fa-sign-out-alt "></i>
+                    <span className="hide-sm">Logout</span>
                 </a>
             </li>
         </Fragment>
@@ -38,23 +38,23 @@ const Navbar = ({ title, icon }) => {
 
     const guestLinks = (
         <Fragment>
-            <li className='ml-1'>
-                <Link to='/about'>About</Link>
+            <li className="ml-1">
+                <Link to="/about">About</Link>
             </li>
-            <li li className='ml-1'>
-                <Link to='/register'>Register</Link>
+            <li li className="ml-1">
+                <Link to="/register">Create Account</Link>
             </li>
-            <li li className='ml-1'>
-                <Link to='/login'>Login</Link>
+            <li li className="ml-1">
+                <Link to="/login">Login</Link>
             </li>
         </Fragment>
     );
 
     return (
-        <div className='navbar bg-primary'>
+        <div className="navbar">
             <h2>
                 <i className={icon} />
-                <Link to='/'>{title}</Link>
+                <Link to="/">{title}</Link>
             </h2>
             <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
         </div>
@@ -67,8 +67,7 @@ Navbar.protoTypes = {
 };
 
 Navbar.defaultProps = {
-    title: 'Contact Keeper',
-    icon: 'fas fa-id-card-alt'
+    title: "Contact Keeper"
 };
 
 export default Navbar;
