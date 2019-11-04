@@ -7,7 +7,7 @@ const ContactItem = ({ contact }) => {
     const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
     const {
-        _id,
+        id,
         name,
         email,
         phone,
@@ -19,7 +19,7 @@ const ContactItem = ({ contact }) => {
     } = contact;
 
     const onDelete = () => {
-        deleteContact(_id);
+        deleteContact(id);
         clearCurrent();
     };
 

@@ -26,7 +26,7 @@ const ContactState = props => {
     const [state, dispatch] = useReducer(contactReducer, initialState);
 
     // Get Contacts
-    const getContacts = async contact => {
+    const getContacts = async () => {
         try {
             const res = await axios.get('/api/contacts');
 
@@ -44,9 +44,11 @@ const ContactState = props => {
 
     // Add Contact
     const addContact = async contact => {
+        const token = localStorage.getItem('token');
         const config = {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-auth-token': token
             }
         };
 

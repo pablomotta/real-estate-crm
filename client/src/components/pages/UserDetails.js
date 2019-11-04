@@ -8,7 +8,7 @@ const UserDetails = ({ contact }) => {
     const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
     const {
-        _id,
+        id,
         name,
         email,
         phone,
@@ -20,7 +20,7 @@ const UserDetails = ({ contact }) => {
     } = contact;
 
     const onDelete = () => {
-        deleteContact(_id);
+        deleteContact(id);
         clearCurrent();
     };
 
