@@ -1,23 +1,33 @@
-const mongoose = require("mongoose");
+module.exports = function(sequelize, DataTypes) {
+    var Users = sequelize.define('User', {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isEmail: true
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [6]
+            }
+        }
+    });
 
-const UserSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now
-    }
-});
+    Users.associate = function(models) {
+        Users.hasMany(models.Contacts, {
+            onDelete: 'cascade'
+        });
+    };
 
-module.exports = mongoose.model("user", UserSchema);
+    return Users;
+};
