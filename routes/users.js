@@ -5,10 +5,10 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
-const User = require('../models/User');
+const db = require('../models');
 
 // @route     POST api/users
-// @desc      Regiter a user
+// @desc      Register a user
 // @access    Public
 router.post(
     '/',
@@ -29,25 +29,29 @@ router.post(
         }
 
         const { name, email, password } = req.body;
-
+        console.log(req.body);
         try {
-            let user = await User.findOne({ email });
+            // let user = await db.User.findOne({
+            //     where: {
+            //         email
+            //     }
+            // });
 
-            if (user) {
-                return res.status(400).json({ msg: 'User already exists' });
-            }
+            // if (user) {
+            //     return res.status(400).json({ msg: 'User already exists' });
+            // }
 
-            user = new User({
+            user = {
                 name,
                 email,
                 password
-            });
+            };
 
             const salt = await bcrypt.genSalt(10);
 
             user.password = await bcrypt.hash(password, salt);
 
-            await user.save();
+            await db.User.create(user);
 
             const payload = {
                 user: {
