@@ -14,7 +14,11 @@ const ContactForm = () => {
                 name: '',
                 email: '',
                 phone: '',
-                type: 'personal'
+                purchaseZipCode: '',
+                notes: '',
+                lastContacted: '',
+                birthday: '',
+                status: 'Interested'
             });
         }
     }, [contactContext, current]);
@@ -23,10 +27,23 @@ const ContactForm = () => {
         name: '',
         email: '',
         phone: '',
-        type: 'personal'
+        purchaseZipCode: '',
+        notes: '',
+        lastContacted: '',
+        birthday: '',
+        status: 'Interested'
     });
 
-    const { name, email, phone, type } = contact;
+    const {
+        name,
+        email,
+        phone,
+        purchaseZipCode,
+        notes,
+        lastContacted,
+        birthday,
+        status
+    } = contact;
 
     const onChange = e =>
         setContact({ ...contact, [e.target.name]: e.target.value });
@@ -42,7 +59,11 @@ const ContactForm = () => {
             name: '',
             email: '',
             phone: '',
-            type: 'personal'
+            purchaseZipCode: '',
+            notes: '',
+            lastContacted: '',
+            birthday: '',
+            status: 'Interested'
         });
     };
 
@@ -75,23 +96,59 @@ const ContactForm = () => {
                 value={phone}
                 onChange={onChange}
             />
-            <h5>Contact Type</h5>
+            <input //zip code
+                type='text'
+                placeholder='Purchase Zip Code'
+                name='purchaseZipCode'
+                value={purchaseZipCode}
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                placeholder='Notes'
+                name='notes'
+                value={notes}
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                placeholder='Last Contacted'
+                name='lastContacted'
+                value={lastContacted}
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                placeholder='Birthday'
+                name='birthday'
+                value={birthday}
+                onChange={onChange}
+            />
+            <h5>Status</h5>
             <input
                 type='radio'
-                name='type'
-                value='personal'
-                checked={type === 'personal'}
+                name='status'
+                value='Interested'
+                checked={status === 'Interested'}
                 onChange={onChange}
             />{' '}
-            Personal{' '}
+            Interested{' '}
             <input
                 type='radio'
-                name='type'
-                value='professional'
-                checked={type === 'professional'}
+                name='status'
+                value='Ready To Buy'
+                checked={status === 'Ready To Buy'}
                 onChange={onChange}
             />{' '}
-            Professional{' '}
+            Ready To Buy{' '}
+            <input
+                type='radio'
+                name='status'
+                value='On Hold'
+                checked={status === 'On Hold'}
+                onChange={onChange}
+            />{' '}
+            On Hold{' '}
             <div>
                 <input
                     type='submit'

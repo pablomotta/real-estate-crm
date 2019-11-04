@@ -1,0 +1,14 @@
+{
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "css.lint.boxModel": "warning",
+    "css.lint.duplicateProperties": "warning",
+    "css.trace.server": "messages",
+    "html.format.indentHandlebars": true,
+    "html.format.endWithNewline": true,
+    "html.format.indentInnerHtml": true,
+    "prettier.tabWidth": 4
+}
