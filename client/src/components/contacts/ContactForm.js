@@ -105,21 +105,21 @@ const ContactForm = () => {
             />
             <MDBInput
                 type="text"
-                label="Notes"
+                label="Briefing Notes"
                 name="notes"
                 value={notes}
                 onChange={onChange}
             />
             <MDBInput
                 type="text"
-                label="Last Contacted"
+                label="Meeting Time"
                 name="lastContacted"
                 value={lastContacted}
                 onChange={onChange}
             />
             <MDBInput
                 type="text"
-                label="Birthday"
+                label="Meeting Location"
                 name="birthday"
                 value={birthday}
                 onChange={onChange}
@@ -152,14 +152,14 @@ const ContactForm = () => {
                 On Hold{" "}
             </MDBFormInline>
             <div>
-                <MDBBtn
+                <MDBInput
                     type="submit"
                     gradient="blue"
                     value={current ? "Update Contact" : "Add Contact"}
                     className="btn btn-primary btn-block"
                 >
-                    Add Contact{" "}
-                </MDBBtn>
+                    {" "}
+                </MDBInput>
             </div>
             {current && (
                 <div>
