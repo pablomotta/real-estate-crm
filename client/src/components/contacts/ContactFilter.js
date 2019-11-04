@@ -1,16 +1,6 @@
 import React, { useContext, useRef, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
-import {
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBInput,
-    MDBBtn,
-    MDBIcon,
-    MDBModalFooter
-} from "mdbreact";
+import { MDBInput } from "mdbreact";
 
 const ContactFilter = () => {
     const contactContext = useContext(ContactContext);

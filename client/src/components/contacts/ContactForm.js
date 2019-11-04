@@ -1,16 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
-import {
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBInput,
-    MDBBtn,
-    MDBIcon,
-    MDBModalFooter
-} from "mdbreact";
+import { MDBInput, MDBBtn, MDBFormInline } from "mdbreact";
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
 
@@ -135,30 +125,32 @@ const ContactForm = () => {
                 onChange={onChange}
             />
             <h3>Status</h3>
-            <MDBInput
-                type="radio"
-                name="status"
-                value="Interested"
-                checked={status === "Interested"}
-                onChange={onChange}
-            />{" "}
-            Interested{" "}
-            <MDBInput
-                type="radio"
-                name="status"
-                value="Ready To Buy"
-                checked={status === "Ready To Buy"}
-                onChange={onChange}
-            />{" "}
-            Ready To Buy{" "}
-            <MDBInput
-                type="radio"
-                name="status"
-                value="On Hold"
-                checked={status === "On Hold"}
-                onChange={onChange}
-            />{" "}
-            On Hold{" "}
+            <MDBFormInline>
+                <MDBInput
+                    type="radio"
+                    name="status"
+                    value="Interested"
+                    checked={status === "Interested"}
+                    onChange={onChange}
+                />{" "}
+                Interested{" "}
+                <MDBInput
+                    type="radio"
+                    name="status"
+                    value="Ready To Buy"
+                    checked={status === "Ready To Buy"}
+                    onChange={onChange}
+                />{" "}
+                Ready To Buy{" "}
+                <MDBInput
+                    type="radio"
+                    name="status"
+                    value="On Hold"
+                    checked={status === "On Hold"}
+                    onChange={onChange}
+                />{" "}
+                On Hold{" "}
+            </MDBFormInline>
             <div>
                 <MDBInput
                     type="submit"
