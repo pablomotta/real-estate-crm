@@ -105,21 +105,21 @@ const ContactForm = () => {
             />
             <MDBInput
                 type="text"
-                label="Briefing Notes"
+                label="Notes"
                 name="notes"
                 value={notes}
                 onChange={onChange}
             />
             <MDBInput
                 type="text"
-                label="Meeting Time"
+                label="Last Contacted Date"
                 name="lastContacted"
                 value={lastContacted}
                 onChange={onChange}
             />
             <MDBInput
                 type="text"
-                label="Meeting Location"
+                label="Birthday"
                 name="birthday"
                 value={birthday}
                 onChange={onChange}
