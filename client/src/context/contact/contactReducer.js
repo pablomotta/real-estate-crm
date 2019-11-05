@@ -8,7 +8,8 @@ import {
     FILTER_CONTACTS,
     CLEAR_FILTER,
     CONTACT_ERROR,
-    CLEAR_CONTACTS
+    CLEAR_CONTACTS,
+    GET_NORRIS
 } from '../types';
 
 export default (state, action) => {
@@ -79,6 +80,13 @@ export default (state, action) => {
                 ...state,
                 error: action.payload
             };
+        case GET_NORRIS:
+            return {
+                ...state,
+                norrisJoke: action.payload,
+                loading: false
+            };
+
         default:
             return state;
     }

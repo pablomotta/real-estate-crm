@@ -12,7 +12,8 @@ import {
     FILTER_CONTACTS,
     CLEAR_CONTACTS,
     CLEAR_FILTER,
-    CONTACT_ERROR
+    CONTACT_ERROR,
+    GET_NORRIS
 } from '../types';
 
 const ContactState = props => {
@@ -138,6 +139,22 @@ const ContactState = props => {
         dispatch({ type: CLEAR_FILTER });
     };
 
+    const getNorris = async () => {
+        try {
+            const res = await axios.get('/api/norris');
+            console.log('get norries', res.data);
+            dispatch({
+                type: GET_NORRIS,
+                payload: res
+            });
+        } catch (err) {
+            dispatch({
+                type: CONTACT_ERROR,
+                payload: err.response.msg
+            });
+        }
+    };
+
     return (
         <ContactContext.Provider
             value={{
@@ -153,7 +170,9 @@ const ContactState = props => {
                 updateContact,
                 filterContacts,
                 clearFilter,
-                getContacts
+                getContacts,
+                getNorris,
+                norrisJoke: state.norrisJoke
             }}
         >
             {props.children}

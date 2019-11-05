@@ -1,14 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
-import { MDBInput, MDBBtn, MDBFormInline } from 'mdbreact';
+import { MDBInput, MDBBtn } from 'mdbreact';
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
 
-    const { addContact, updateContact, clearCurrent, current } = contactContext;
+    const {
+        addContact,
+        updateContact,
+        clearCurrent,
+        current,
+        getNorris,
+        norrisJoke
+    } = contactContext;
 
     useEffect(() => {
         if (current !== null) {
             setContact(current);
+            getNorris();
         } else {
             setContact({
                 name: '',
@@ -21,6 +29,7 @@ const ContactForm = () => {
                 status: 'Interested'
             });
         }
+        // eslint-disable-next-line
     }, [contactContext, current]);
 
     const [contact, setContact] = useState({
@@ -70,11 +79,14 @@ const ContactForm = () => {
     const clearAll = () => {
         clearCurrent();
     };
+
     return (
         <form onSubmit={onSubmit}>
             <h2 className='text-primary'>
                 {current ? 'Edit Contact' : 'Add Contact'}
             </h2>
+
+            <h5>{norrisJoke}</h5>
             <MDBInput
                 type='text'
                 label='Name'
@@ -125,7 +137,7 @@ const ContactForm = () => {
                 onChange={onChange}
             />
             <h3>Status</h3>
-            <MDBFormInline>
+            <div className='customer-status'>
                 <MDBInput
                     type='radio'
                     name='status'
@@ -150,7 +162,7 @@ const ContactForm = () => {
                     onChange={onChange}
                 />{' '}
                 On Hold{' '}
-            </MDBFormInline>
+            </div>
             <div>
                 <MDBInput
                     type='submit'
@@ -161,6 +173,7 @@ const ContactForm = () => {
                     {' '}
                 </MDBInput>
             </div>
+
             {current && (
                 <div>
                     <MDBBtn
