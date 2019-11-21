@@ -9,14 +9,12 @@ const ContactForm = () => {
         updateContact,
         clearCurrent,
         current,
-        getNorris,
-        norrisJoke
+        getNorris
     } = contactContext;
 
     useEffect(() => {
         if (current !== null) {
             setContact(current);
-            getNorris();
         } else {
             setContact({
                 name: '',
@@ -31,6 +29,18 @@ const ContactForm = () => {
         }
         // eslint-disable-next-line
     }, [contactContext, current]);
+
+    const [norrisJoke, setNorrisJoke] = useState({
+        jokes: []
+    });
+
+    useEffect(() => {
+        const joke = getNorris();
+        setNorrisJoke(joke);
+        // eslint-disable-next-line
+    }, []);
+
+    // console.log(getNorris());
 
     const [contact, setContact] = useState({
         name: '',
@@ -86,7 +96,7 @@ const ContactForm = () => {
                 {current ? 'Edit Contact' : 'Add Contact'}
             </h2>
 
-            <h5>{norrisJoke}</h5>
+            {/* <p></p> */}
             <MDBInput
                 type='text'
                 label='Name'
@@ -138,7 +148,8 @@ const ContactForm = () => {
             />
             <h3>Status</h3>
             <div className='customer-status'>
-                <MDBInput
+                <input
+                    className=''
                     type='radio'
                     name='status'
                     value='Interested'
@@ -146,7 +157,8 @@ const ContactForm = () => {
                     onChange={onChange}
                 />{' '}
                 Interested{' '}
-                <MDBInput
+                <input
+                    className='status-choice'
                     type='radio'
                     name='status'
                     value='Ready To Buy'
@@ -154,7 +166,8 @@ const ContactForm = () => {
                     onChange={onChange}
                 />{' '}
                 Ready To Buy{' '}
-                <MDBInput
+                <input
+                    className='status-choice'
                     type='radio'
                     name='status'
                     value='On Hold'

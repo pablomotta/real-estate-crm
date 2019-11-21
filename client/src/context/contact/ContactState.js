@@ -21,7 +21,8 @@ const ContactState = props => {
         contacts: null,
         current: null,
         filtered: null,
-        error: null
+        error: null,
+        norrisJoke: null
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -55,7 +56,6 @@ const ContactState = props => {
 
         try {
             const res = await axios.post('/api/contacts', contact, config);
-            console.log(res);
 
             dispatch({
                 type: ADD_CONTACT,
@@ -142,10 +142,10 @@ const ContactState = props => {
     const getNorris = async () => {
         try {
             const res = await axios.get('/api/norris');
-            console.log('get norries', res.data);
+            console.log('get norris:::', res.data);
             dispatch({
                 type: GET_NORRIS,
-                payload: res
+                payload: res.data
             });
         } catch (err) {
             dispatch({

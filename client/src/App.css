@@ -471,8 +471,10 @@ img {
         0 4px 15px 0 rgba(36, 133, 255, 0.15);
 }
 
+.status-choice {
+    margin-left: 3rem !important;
+}
+
 .customer-status {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    margin: 2rem 2rem 2rem 0;
 }

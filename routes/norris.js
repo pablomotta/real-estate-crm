@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     })
         .then(response => {
             res.json(response.data.value);
-            console.log(response.data.value);
+            console.log('server :::', response.data.value);
         })
         .catch(error => {
             console.log(error);
