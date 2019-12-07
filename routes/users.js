@@ -29,17 +29,18 @@ router.post(
         }
 
         const { name, email, password } = req.body;
-        console.log(req.body);
+        console.log('User Route req.body - ', req.body);
         try {
-            // let user = await db.User.findOne({
-            //     where: {
-            //         email
-            //     }
-            // });
+            let user = await db.User.findOne({
+                where: {
+                    email
+                }
+            });
+            console.log('User Route - ', user);
 
-            // if (user) {
-            //     return res.status(400).json({ msg: 'User already exists' });
-            // }
+            if (user) {
+                return res.status(400).json({ msg: 'User already exists' });
+            }
 
             user = {
                 name,
@@ -48,6 +49,7 @@ router.post(
             };
 
             const salt = await bcrypt.genSalt(10);
+            console.log('bcrypt salt', salt);
 
             user.password = await bcrypt.hash(password, salt);
 
@@ -68,6 +70,7 @@ router.post(
                 (err, token) => {
                     if (err) throw err;
                     res.json({ token });
+                    console.log('register user token: - ', token);
                 }
             );
         } catch (err) {

@@ -4,13 +4,7 @@ import { MDBInput, MDBBtn } from 'mdbreact';
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
 
-    const {
-        addContact,
-        updateContact,
-        clearCurrent,
-        current,
-        getNorris
-    } = contactContext;
+    const { addContact, updateContact, clearCurrent, current } = contactContext;
 
     useEffect(() => {
         if (current !== null) {
@@ -29,18 +23,6 @@ const ContactForm = () => {
         }
         // eslint-disable-next-line
     }, [contactContext, current]);
-
-    const [norrisJoke, setNorrisJoke] = useState({
-        jokes: []
-    });
-
-    useEffect(() => {
-        const joke = getNorris();
-        setNorrisJoke(joke);
-        // eslint-disable-next-line
-    }, []);
-
-    // console.log(getNorris());
 
     const [contact, setContact] = useState({
         name: '',
