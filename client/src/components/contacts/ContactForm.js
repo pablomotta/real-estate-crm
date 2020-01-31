@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
-import { MDBInput, MDBBtn, MDBFormInline } from 'mdbreact';
+import { MDBInput, MDBBtn } from 'mdbreact';
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
 
@@ -21,6 +21,7 @@ const ContactForm = () => {
                 status: 'Interested'
             });
         }
+        // eslint-disable-next-line
     }, [contactContext, current]);
 
     const [contact, setContact] = useState({
@@ -70,11 +71,14 @@ const ContactForm = () => {
     const clearAll = () => {
         clearCurrent();
     };
+
     return (
         <form onSubmit={onSubmit}>
             <h2 className='text-primary'>
                 {current ? 'Edit Contact' : 'Add Contact'}
             </h2>
+
+            {/* <p></p> */}
             <MDBInput
                 type='text'
                 label='Name'
@@ -125,8 +129,9 @@ const ContactForm = () => {
                 onChange={onChange}
             />
             <h3>Status</h3>
-            <MDBFormInline>
-                <MDBInput
+            <div className='customer-status'>
+                <input
+                    className=''
                     type='radio'
                     name='status'
                     value='Interested'
@@ -134,7 +139,8 @@ const ContactForm = () => {
                     onChange={onChange}
                 />{' '}
                 Interested{' '}
-                <MDBInput
+                <input
+                    className='status-choice'
                     type='radio'
                     name='status'
                     value='Ready To Buy'
@@ -142,7 +148,8 @@ const ContactForm = () => {
                     onChange={onChange}
                 />{' '}
                 Ready To Buy{' '}
-                <MDBInput
+                <input
+                    className='status-choice'
                     type='radio'
                     name='status'
                     value='On Hold'
@@ -150,7 +157,7 @@ const ContactForm = () => {
                     onChange={onChange}
                 />{' '}
                 On Hold{' '}
-            </MDBFormInline>
+            </div>
             <div>
                 <MDBInput
                     type='submit'
@@ -161,6 +168,7 @@ const ContactForm = () => {
                     {' '}
                 </MDBInput>
             </div>
+
             {current && (
                 <div>
                     <MDBBtn

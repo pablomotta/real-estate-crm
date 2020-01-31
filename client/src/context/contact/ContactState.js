@@ -12,7 +12,8 @@ import {
     FILTER_CONTACTS,
     CLEAR_CONTACTS,
     CLEAR_FILTER,
-    CONTACT_ERROR
+    CONTACT_ERROR,
+    GET_NORRIS
 } from '../types';
 
 const ContactState = props => {
@@ -20,7 +21,8 @@ const ContactState = props => {
         contacts: null,
         current: null,
         filtered: null,
-        error: null
+        error: null,
+        norrisJoke: null
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -54,7 +56,6 @@ const ContactState = props => {
 
         try {
             const res = await axios.post('/api/contacts', contact, config);
-            console.log(res);
 
             dispatch({
                 type: ADD_CONTACT,
@@ -138,6 +139,22 @@ const ContactState = props => {
         dispatch({ type: CLEAR_FILTER });
     };
 
+    const getNorris = async () => {
+        try {
+            const res = await axios.get('/api/norris');
+            console.log('get norris:::', res.data);
+            dispatch({
+                type: GET_NORRIS,
+                payload: res.data
+            });
+        } catch (err) {
+            dispatch({
+                type: CONTACT_ERROR,
+                payload: err.response.msg
+            });
+        }
+    };
+
     return (
         <ContactContext.Provider
             value={{
@@ -153,7 +170,9 @@ const ContactState = props => {
                 updateContact,
                 filterContacts,
                 clearFilter,
-                getContacts
+                getContacts,
+                getNorris,
+                norrisJoke: state.norrisJoke
             }}
         >
             {props.children}

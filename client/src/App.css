@@ -51,7 +51,7 @@ img {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     background-color: #fff;
@@ -469,4 +469,12 @@ img {
         0 4px 15px 0 rgba(36, 133, 255, 0.15);
     box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28),
         0 4px 15px 0 rgba(36, 133, 255, 0.15);
+}
+
+.status-choice {
+    margin-left: 3rem !important;
+}
+
+.customer-status {
+    margin: 2rem 2rem 2rem 0;
 }
