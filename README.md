@@ -14,3 +14,20 @@ On this app users can:
 -   [NPM](https://www.npmjs.com/get-npm)
 -   [NodeJS](https://nodejs.org/en/)
 -   [MySQL Workbench](https://www.mysql.com/products/workbench/)
+
+## Installation
+
+On your MySQL Workbench, run the following commands:
+
+-   `DROP DATABASE IF EXISTS crm;`
+-   `CREATE DATABASE crm;`
+
+On your command line, run the following commands:
+
+-   `git@github.com:pablomotta/real-estate-crm.git`
+
+-   `npm run clientinstall`
+
+-   `npm install`
+
+-   `npm run dev`
