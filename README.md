@@ -31,3 +31,7 @@ On your command line, run the following commands:
 -   `npm install`
 
 -   `npm run dev`
+
+## Author
+
+-   **Pablo Motta** - [github profile](https://github.com/pablomotta)
