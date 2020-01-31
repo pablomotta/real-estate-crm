@@ -24,9 +24,13 @@ const Navbar = ({ title, icon }) => {
             <li className='ml-1'>
                 <Link to='/about'>About</Link>
             </li>
+<<<<<<< HEAD
             <li li className='ml-1'>
                 Hello, {user && user.name}!
             </li>
+=======
+            <li className='ml-1'>Hello, {user && user.name}!</li>
+>>>>>>> origin/master
             <li className='ml-1'>
                 <a onClick={onLogout} href='#1'>
                     <i className='fas fa-sign-out-alt '></i>
@@ -41,10 +45,17 @@ const Navbar = ({ title, icon }) => {
             <li className='ml-1'>
                 <Link to='/about'>About</Link>
             </li>
+<<<<<<< HEAD
             <li li className='ml-1'>
                 <Link to='/register'>Create Account</Link>
             </li>
             <li li className='ml-1'>
+=======
+            <li className='ml-1'>
+                <Link to='/register'>Create Account</Link>
+            </li>
+            <li className='ml-1'>
+>>>>>>> origin/master
                 <Link to='/login'>Login</Link>
             </li>
         </Fragment>

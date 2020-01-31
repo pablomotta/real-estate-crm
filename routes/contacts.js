@@ -182,4 +182,13 @@ router.delete('/:id', auth, async (req, res) => {
     }
 });
 
+router.get('/weather', async (req, res) => {
+    try {
+        console.log(req);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;

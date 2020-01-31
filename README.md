@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Real Estate CRM
 
 ![App Logo](client/img/eat-da-burger.png)
@@ -11,6 +12,18 @@ On this app users can:
 -   Add their favorite burgers to a favorite burger list.
 -   Mark burgers as devoured, sending the burger to the devoured list.
 -   Delete burgers from the devoured burger list.
+=======
+# Contact Keeper
+
+![App Logo](client/img/crm.png)
+
+### Contact Keeper is an app for real estate agents to keep their prospect's important information. This is a full stack app built using React.js (with the context API), Express, Node.js and MySQL (with Sequelize).
+
+On this app users can:
+
+-   Create an account
+-   Add, update and delete contacts.
+>>>>>>> origin/master
 
 ## Prerequisites
 
@@ -22,6 +35,7 @@ On this app users can:
 
 On your MySQL Workbench, run the following commands:
 
+<<<<<<< HEAD
 -   `CREATE DATABASE burgers_db`
 -   `USE burgers_db`
 
@@ -34,6 +48,20 @@ On your command line, run the following commands:
 -   `npm install`
 
 -   `npm start`
+=======
+-   `DROP DATABASE IF EXISTS crm;`
+-   `CREATE DATABASE crm;`
+
+On your command line, run the following commands:
+
+-   `git@github.com:pablomotta/real-estate-crm.git`
+
+-   `npm run clientinstall`
+
+-   `npm install`
+
+-   `npm run dev`
+>>>>>>> origin/master
 
 ## Author
 
@@ -41,4 +69,8 @@ On your command line, run the following commands:
 
 ## Live App
 
+<<<<<<< HEAD
 [Click here to visit the live website.](https://eat-da-burger-pm.herokuapp.com/)
+=======
+[Click here to visit the live website.](http://itaintmuchbutitshonestwork.com/)
+>>>>>>> origin/master

@@ -52,7 +52,7 @@ const UserDetails = ({ contact }) => {
                 <ul className='list'>
                     {birthday && (
                         <li>
-                            <i class='fas fa-birthday-cake'></i> {birthday}
+                            <i className='fas fa-birthday-cake'></i> {birthday}
                         </li>
                     )}
                     {email && (
